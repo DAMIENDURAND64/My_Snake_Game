@@ -15,6 +15,7 @@ const Canvas = forwardRef<HTMLCanvasElement, CanvasProps>(
       if (!context) return;
 
       draw(context);
+      return () => context.clearRect(0, 0, window.innerWidth, 400);
     }, [draw, canvasRef]);
 
     if (!canvasRef) return null;
@@ -22,11 +23,9 @@ const Canvas = forwardRef<HTMLCanvasElement, CanvasProps>(
     return (
       <canvas
         ref={canvasRef as any}
-        className="h-[800px] w-[400px] border-[10px] border-black"
+        className="h-full w-full border-[10px] border-black"
         {...rest}
-      >
-        Canvas
-      </canvas>
+      />
     );
   }
 );
