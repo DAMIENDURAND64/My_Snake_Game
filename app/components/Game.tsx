@@ -31,29 +31,33 @@ const Game = () => {
       className="w-auto flex flex-col items-center outline-none"
     >
       <Canvas draw={drawGame} ref={canvasRef} />
-      {gameState === GameState.GAME_OVER ? (
-        <button
-          onClick={() => {
-            setGameState(GameState.RUNNING);
-            resetGameState();
-          }}
-        >
-          Play Again
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            setGameState(
-              gameState === GameState.RUNNING
-                ? GameState.PAUSED
-                : GameState.RUNNING
-            );
-          }}
-        >
-          {gameState === GameState.RUNNING ? "pause" : "play"}
-        </button>
-      )}
-      <div>{`Your score: ${(snakeBody.length - 1) * 10} `}</div>
+      <div className="flex w-full justify-evenly pt-4">
+        {gameState === GameState.GAME_OVER ? (
+          <button
+            onClick={() => {
+              setGameState(GameState.RUNNING);
+              resetGameState();
+            }}
+            className="px-2 py-1 bg-green-500 rounded-md font-bold"
+          >
+            Play Again
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setGameState(
+                gameState === GameState.RUNNING
+                  ? GameState.PAUSED
+                  : GameState.RUNNING
+              );
+            }}
+            className="px-2 py-1 bg-green-500 rounded-md font-bold uppercase"
+          >
+            {gameState === GameState.RUNNING ? "pause" : "play"}
+          </button>
+        )}
+        <div>{`Your score: ${(snakeBody.length - 1) * 10} `}</div>
+      </div>
     </div>
   );
 };
