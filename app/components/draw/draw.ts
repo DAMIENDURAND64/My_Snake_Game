@@ -9,7 +9,7 @@ type DrawArgs = {
 
 const draw = ({ ctx, snakeBody, foodPosition }: DrawArgs) => {
   if (foodPosition) {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "green";
     ctx.fillRect(foodPosition.x, foodPosition.y, SEGMENT_SIZE, SEGMENT_SIZE);
   }
   ctx.fillStyle = "blue";

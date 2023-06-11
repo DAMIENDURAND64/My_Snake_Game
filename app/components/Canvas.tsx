@@ -23,7 +23,7 @@ const Canvas = forwardRef<HTMLCanvasElement, CanvasProps>(
     return (
       <canvas
         ref={canvasRef as any}
-        className="h-[1000px] w-full border-[10px] border-black"
+        className="h-[650px] w-full border-[10px] border-black"
         {...rest}
       />
     );
